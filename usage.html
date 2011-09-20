@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Radar Chart</title>
+    
+    <link rel="stylesheet" href="radar_chart.css" type="text/css" charset="utf-8"></script>
+    
+    <script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+    <script src="raphael.js"></script>
+    <script src="radar_chart.js"></script>
+
+    <script>
+    $(document).ready(function() {
+
+        var headers = [ 'Offense', 'Defense', 'Speed', 'Technique', 'Power', 'Stamina' ]; 
+
+        var data1 = {
+          variables: headers,
+          values:    [ 94, 56, 93, 88, 86, 83 ]
+        };
+        
+        var data2 = {
+          variables: headers,
+          values:    [ 67, 78, 76, 66, 69, 70 ]
+        };
+
+        // create a new instance of the plugin
+        var player1 = new $.RadarChart( $('#player-1'), { 'gridIntervals': 3 } );
+        var player2 = new $.RadarChart( $('#player-2'), { 'gridStyle': 'round' } );
+        
+        // call a public method
+        player1.draw(data1);
+        player2.draw(data2);
+
+        // get the value of a public property
+        // myplugin.settings.property;
+
+    });
+    </script>
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="player-1" class="radar_chart"></div>
+    <div id="player-2" class="radar_chart"></div>
+  </div>
+</body>
+
+</html>
